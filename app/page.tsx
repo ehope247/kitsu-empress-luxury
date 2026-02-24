@@ -203,7 +203,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 5. ROADMAP --- */}
+      {/* --- 5. ROADMAP (UPDATED) --- */}
       <section id="roadmap" className="py-24 md:py-32 px-6 bg-cream-dark relative">
         <div className="max-w-5xl mx-auto">
           <motion.div 
@@ -219,25 +219,47 @@ export default function Home() {
 
           <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gold before:to-transparent">
             {[
-              { phase: "Phase I", title: "The Awakening", items: ["Website Reveal", "Community Formation", "Fair Launch"] },
-              { phase: "Phase II", title: "Expansion", items: ["CoinGecko Listing", "Influencer Push", "1,000 Holders"] },
-              { phase: "Phase III", title: "Dominance", items: ["CEX Listings", "Global Marketing", "Merch Drop"] },
-              { phase: "Phase IV", title: "Legacy", items: ["Tier 1 Exchange", "DAO Governance", "To The Moon"] },
+              { 
+                phase: "Phase I", 
+                title: "The Awakening", 
+                subtitle: "Attention capture, community ignition, and positioning.",
+                items: ["Brand & Website Reveal", "Full Lore Release (Who is Kitsu?)", "Utility Preview (Live Demo Before Launch)", "Meme Campaigns & Competitions", "Airdrop Tasks & Early Rewards", "Community Formation (X, Telegram)", "Fair Launch (Pump.fun / TGE)", "Token Distribution After Launch"] 
+              },
+              { 
+                phase: "Phase II", 
+                title: "Expansion", 
+                subtitle: "Growth and legitimacy.",
+                items: ["Post-Launch Stability Focus", "Liquidity Strengthening", "Influencer Collaborations", "CoinGecko & CoinMarketCap Applications", "Holder Milestone Rewards (1K+ holders)", "Continued Meme Campaigns"] 
+              },
+              { 
+                phase: "Phase III", 
+                title: "Dominance", 
+                subtitle: "Differentiation phase.",
+                items: ["First Utility Rollout", "Strategic Partnerships", "CEX Listing Discussions", "Global Marketing Campaign", "Brand Merch Release", "Community Governance Trials"] 
+              },
+              { 
+                phase: "Phase IV", 
+                title: "Legacy", 
+                subtitle: "Long-term positioning.",
+                items: ["Expanded Utility Ecosystem", "DAO Governance", "Tier-1 Exchange Ambition", "Cross-Chain Exploration (If Needed)", "Establish $KITSU as the Leading Cat Brand on Solana"] 
+              },
             ].map((item, i) => (
               <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
                 <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-cream bg-gold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 text-white z-10">
                   <Crown size={14} />
                 </div>
                 <motion.div 
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.01 }}
                   className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 md:p-8 rounded-none border border-charcoal/5 shadow-sm hover:shadow-xl transition-all duration-300"
                 >
                   <span className="text-gold text-[9px] font-bold tracking-[0.2em] uppercase">{item.phase}</span>
-                  <h4 className="text-xl md:text-2xl font-serif text-charcoal mb-4">{item.title}</h4>
+                  <h4 className="text-xl md:text-2xl font-serif text-charcoal mt-1 mb-1">{item.title}</h4>
+                  <p className="text-charcoal/50 text-xs italic mb-4">{item.subtitle}</p>
                   <ul className="space-y-2">
                     {item.items.map((sub, j) => (
-                      <li key={j} className="text-charcoal/60 text-xs md:text-sm flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 bg-gold rounded-full" /> {sub}
+                      <li key={j} className="text-charcoal/70 text-xs md:text-sm flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-gold rounded-full mt-1.5 shrink-0" /> 
+                        <span>{sub}</span>
                       </li>
                     ))}
                   </ul>
@@ -273,7 +295,7 @@ export default function Home() {
           <div className="w-full h-px bg-white/10 mb-8" />
           
           <div className="flex flex-col md:flex-row justify-between w-full text-[9px] md:text-[10px] text-cream/30 uppercase tracking-[0.2em] gap-4">
-            <p>© 2024 $KITSU. All Rights Reserved.</p>
+            <p>© 2026 $KITSU. All Rights Reserved.</p>
             <p>Designed for Luxury.</p>
           </div>
         </div>
