@@ -8,20 +8,17 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [buyText, setBuyText] = useState("Buy $KITSU");
 
-  // Handle scroll effect for navbar
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle Buy Button Click
   const handleBuyClick = () => {
     setBuyText("Launching Soon...");
     setTimeout(() => setBuyText("Buy $KITSU"), 2000);
   };
 
-  // Fixed animation variants for clean performance
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -30,7 +27,7 @@ export default function Home() {
   return (
     <main className="min-h-screen font-sans selection:bg-gold selection:text-white overflow-x-hidden">
       
-      {/* --- 1. LUXURY NAVIGATION (Optimized for Mobile) --- */}
+      {/* --- 1. LUXURY NAVIGATION --- */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? "bg-cream/95 backdrop-blur-xl py-3 shadow-sm border-b border-gold/10" : "bg-transparent py-5"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
           <div className="flex items-center gap-1.5 text-xl md:text-2xl font-serif font-bold tracking-widest text-charcoal">
@@ -107,7 +104,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* --- 3. THE LORE --- */}
+      {/* --- 3. THE LORE (UPGRADED FOR MOBILE) --- */}
       <section id="lore" className="py-24 md:py-32 px-6 bg-white relative overflow-hidden">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 md:gap-20 items-center">
           <motion.div 
@@ -129,8 +126,11 @@ export default function Home() {
             <p className="text-charcoal/70 mb-8 text-base md:text-lg font-light leading-relaxed">
               From the shadows of memes and the glow of screens, Kitsu emerged. Not loud. Not desperate. <strong className="text-gold font-medium">Elegant. Calculated. Inevitable.</strong>
             </p>
-            <div className="pl-6 border-l-2 border-gold">
-              <p className="text-charcoal/80 italic font-serif text-lg md:text-xl">
+            
+            {/* UPGRADED QUOTE BOX */}
+            <div className="bg-charcoal text-white p-6 md:p-8 border-l-4 border-gold shadow-2xl relative overflow-hidden mt-8">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-2xl"></div>
+              <p className="relative z-10 italic font-serif text-lg md:text-xl text-gold-light leading-relaxed">
                 "$Kitsu is not here to compete with dogs. Dogs compete with $Kitsu."
               </p>
             </div>
@@ -149,7 +149,7 @@ export default function Home() {
               { title: "Wealth", icon: <Coins size={24} />, desc: "Luxury asset." },
               { title: "Power", icon: <Cat size={24} />, desc: "Feline dominance." },
             ].map((item, i) => (
-              <div key={i} className="group bg-cream p-6 md:p-10 hover:-translate-y-2 transition-transform duration-500 border border-charcoal/5 hover:border-gold/50 text-center flex flex-col items-center gap-4 hover:shadow-xl hover:shadow-gold/10">
+              <div key={i} className="group bg-gradient-to-br from-white to-cream p-6 md:p-10 hover:-translate-y-2 transition-transform duration-500 border border-charcoal/5 hover:border-gold/50 text-center flex flex-col items-center gap-4 shadow-sm hover:shadow-xl hover:shadow-gold/10">
                 <div className="text-gold group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
                 <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-charcoal">{item.title}</h3>
                 <p className="text-[9px] text-charcoal/50 uppercase tracking-wider">{item.desc}</p>
@@ -203,7 +203,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- 5. ROADMAP (UPDATED) --- */}
+      {/* --- 5. ROADMAP (UPGRADED FOR MOBILE) --- */}
       <section id="roadmap" className="py-24 md:py-32 px-6 bg-cream-dark relative">
         <div className="max-w-5xl mx-auto">
           <motion.div 
@@ -217,7 +217,8 @@ export default function Home() {
             <h3 className="text-4xl md:text-6xl font-serif text-charcoal">Path to the Throne</h3>
           </motion.div>
 
-          <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gold before:to-transparent">
+          {/* FIXED MOBILE ALIGNMENT */}
+          <div className="space-y-8 relative before:absolute before:inset-0 before:left-[22px] md:before:left-1/2 md:before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gold before:to-transparent">
             {[
               { 
                 phase: "Phase I", 
@@ -244,13 +245,17 @@ export default function Home() {
                 items: ["Expanded Utility Ecosystem", "DAO Governance", "Tier-1 Exchange Ambition", "Cross-Chain Exploration (If Needed)", "Establish $KITSU as the Leading Cat Brand on Solana"] 
               },
             ].map((item, i) => (
-              <div key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-cream bg-gold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 text-white z-10">
-                  <Crown size={14} />
+              <div key={i} className="relative flex items-center justify-end md:justify-between md:odd:flex-row-reverse group">
+                
+                {/* Fixed Icon Position */}
+                <div className="absolute left-0 md:relative md:left-auto flex items-center justify-center w-11 h-11 rounded-full border-4 border-cream-dark bg-gold shadow-md shrink-0 z-10">
+                  <Crown size={16} className="text-white" />
                 </div>
+                
+                {/* Upgraded Cards */}
                 <motion.div 
                   whileHover={{ scale: 1.01 }}
-                  className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 md:p-8 rounded-none border border-charcoal/5 shadow-sm hover:shadow-xl transition-all duration-300"
+                  className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-gradient-to-br from-white to-cream p-6 md:p-8 rounded-xl border border-gold/20 shadow-lg shadow-charcoal/5 hover:shadow-xl transition-all duration-300"
                 >
                   <span className="text-gold text-[9px] font-bold tracking-[0.2em] uppercase">{item.phase}</span>
                   <h4 className="text-xl md:text-2xl font-serif text-charcoal mt-1 mb-1">{item.title}</h4>
